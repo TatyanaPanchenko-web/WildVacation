@@ -1,0 +1,80 @@
+@use "../../../styles/vars.scss" as *;
+.blog-item {
+  text-align: left;
+  flex-basis: 25%;
+  border-radius: 4px;
+  background-color: $bgColor;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: $mainColor;
+  transition: all 0.5s ease-in-out;
+  .blog-img {
+    margin-bottom: 20px;
+    width: 100%;
+    height: 200px;
+    img {
+      width: 100%;
+      height: 100%;
+      border-radius: 4px 4px 0 0;
+      object-fit: cover;
+    }
+  }
+  .blog-name,
+  .blog-description,
+  .blog-bottom {
+    padding: 0 20px;
+    transition: all 0.5s ease-in-out;
+  }
+  .blog-name {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 24px;
+    margin-bottom: 14px;
+  }
+  .blog-description {
+    line-height: 20px;
+    flex: 1 1 auto;
+    margin-bottom: 20px;
+    @media (max-width: 768px) {
+      font-size: 16px;
+    }
+  }
+  .blog-bottom {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    line-height: 16px;
+    opacity: 50%;
+    margin-bottom: 20px;
+    margin-top: auto;
+
+    .blog-likes {
+      svg {
+        margin-right: 6px;
+      }
+    }
+  }
+  @media (max-width: 1200px) {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 48%;
+    margin-bottom: 30px;
+  }
+  @media (max-width: 768px) {
+    flex-basis: 100%;
+  }
+}
+.blog-item:hover {
+  background-color: $mainColor;
+  transform: scale(1.03);
+}
+
+.blog-item:hover .blog-name,
+.blog-item:hover .blog-description,
+.blog-item:hover .blog-bottom {
+  color: $secondaryColor;
+}
+.blog-item:hover .blog-likes svg {
+  fill: $secondaryColor;
+}

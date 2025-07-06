@@ -1,0 +1,29 @@
+@use "../../styles/vars.scss" as *;
+.features {
+  text-align: center;
+  margin-bottom: 120px;
+  .container {
+    @extend %container;
+    .section-title {
+      @extend %sectionTitle;
+    }
+    .features-wrapper {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      .feature {
+        flex-basis: 24%;
+        @media (max-width: 1200px) {
+          flex-basis: 48%;
+          margin-bottom: 30px;
+        }
+        @media (max-width: 768px) {
+          flex-basis: 100%;
+        }
+        img {
+          margin-bottom: 17px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,47 @@
+@use "../../styles/vars.scss" as *;
+.review {
+  text-align: center;
+  display: flex;
+  max-width: 924px;
+  margin: 0 auto;
+  margin-bottom: 60px;
+  .container {
+    @extend %container;
+    width: 100%;
+    overflow: hidden;
+    .section-title {
+      @extend %sectionTitle;
+    }
+    .review-items {
+      position: relative;
+      min-height: 360px;
+      @media (max-width: 768px) {
+        min-height: 400px;
+      }
+      .arrow {
+        position: absolute;
+        top: 50%;
+        fill: $accentColor;
+        cursor: pointer;
+        @media (max-width: 1024px) {
+          top: 90%;
+        }
+        @media (max-width: 490px) {
+          visibility: hidden;
+        }
+      }
+      .arrow-left {
+        left: -30px;
+        @media (max-width: 1024px) {
+          left: 42%;
+        }
+      }
+      .arrow-right {
+        right: -30px;
+        @media (max-width: 1024px) {
+          right: 42%;
+        }
+      }
+    }
+  }
+}

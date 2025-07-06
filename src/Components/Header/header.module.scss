@@ -1,0 +1,130 @@
+@use "../../styles/vars.scss" as *;
+.header {
+  padding: 33px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  .container {
+    @extend %container;
+    padding: 0;
+    .header-wrapper {
+      display: flex;
+      justify-content: space-between;
+      .header-left {
+        display: flex;
+        align-items: center;
+        .logo {
+          margin-right: 33px;
+          img {
+            display: block;
+            @media (max-width: 768px) {
+              width: 130px;
+            }
+          }
+        }
+        .language {
+          display: flex;
+          gap: 10px;
+        }
+        .language-switch {
+          color: $mainColor;
+          text-decoration: none;
+          font-size: 13px;
+          font-weight: 500;
+          line-height: 16px;
+          opacity: 50%;
+        }
+        .active {
+          opacity: 100%;
+        }
+      }
+      .header-right {
+        display: flex;
+        align-items: center;
+        .nav {
+          @media (max-width: 1024px) {
+            display: none;
+          }
+        }
+        .btn {
+          @extend %btn;
+          @media (max-width: 1024px) {
+            visibility: hidden;
+          }
+        }
+        .burger-wrapper {
+          visibility: hidden;
+
+          img {
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            top: 40px;
+            right: 40px;
+          }
+          .burger-menu {
+            position: fixed;
+            z-index: 100;
+            width: 100%;
+            top: -100%;
+            background-color: $bgColor;
+            padding: 100px;
+
+            img {
+              width: 40px;
+              height: 40px;
+              position: absolute;
+              top: 40px;
+              right: 40px;
+            }
+            nav {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              a {
+                font-size: 30px;
+                line-height: 2;
+              }
+              button {
+                margin-top: 50px;
+                width: 200px;
+                visibility: visible;
+              }
+            }
+          }
+          .burger-menu.isOpen {
+            right: 0;
+            left: 0;
+            top: 0;
+            bottom: 0;
+          }
+          @media (max-width: 1024px) {
+            visibility: visible;
+          }
+        }
+      }
+    }
+  }
+  .menu-link {
+    font-size: 18px;
+    line-height: 32px;
+    color: $mainColor;
+    text-decoration: none;
+    margin-right: 40px;
+  }
+  .menu-link:last-child {
+    margin-right: 35px;
+  }
+  .active-link {
+    font-size: 18px;
+    line-height: 32px;
+    color: $accentColor;
+    text-decoration: none;
+    margin-right: 40px;
+    cursor: pointer;
+  }
+  .active-link:last-child {
+    margin-right: 35px;
+  }
+}

@@ -1,0 +1,101 @@
+@use "../../styles/vars.scss" as *;
+.tour {
+  padding-top: 200px;
+  margin-bottom: 100px;
+  .container {
+    @extend %container;
+    @media (max-width: 1024px) {
+      text-align: left;
+    }
+    .tour-wrapper {
+      .tour-title {
+        @extend %sectionTitle;
+        text-align: left;
+      }
+      .tour-block {
+        display: flex;
+        gap: 50px;
+        margin-bottom: 50px;
+        @media (max-width: 1024px) {
+          flex-direction: column-reverse;
+        }
+        .tour-img {
+          position: relative;
+          flex: 0 60%;
+          img {
+            width: 100%;
+            border-radius: 4px 4px 0 0;
+          }
+        }
+        .type {
+          position: absolute;
+          background-color: rgba(27, 30, 34, 0.8);
+          border-radius: 6px 0 0 6px;
+          bottom: 0;
+          right: 0;
+          font-size: 16px;
+          text-align: right;
+
+          div {
+            padding: 10px 30px;
+          }
+        }
+        .tour-about {
+         flex: 1 1 30%;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          .tour-about-inner {
+            .tour-info {
+              display: inline-block;
+              .tour-date {
+                font-size: 13px;
+                font-weight: 500;
+                margin-bottom: 15px;
+              }
+              .tour-price {
+                text-align: center;
+                background-color: $accentColor;
+                font-size: 20px;
+                font-weight: 700;
+                line-height: 32px;
+                color: $background;
+                padding: 0 15px;
+                margin-bottom: 20px;
+                span {
+                  font-size: 13px;
+                  font-weight: 500;
+                }
+              }
+            }
+            .tour-description {
+              line-height: 22px;
+            }
+          }
+          button {
+            @extend %btn;
+            align-self: flex-start;
+            margin-top: 30px;
+          }
+        }
+      }
+      .tour-details {
+        font-size: 15px;
+        line-height: 22px;
+        h2,
+        h3 {
+          text-align: center;
+        }
+        h2 {
+          margin-bottom: 30px;
+        }
+        h3,
+        p,
+        li {
+          margin-bottom: 15px;
+          list-style: none;
+        }
+      }
+    }
+  }
+}

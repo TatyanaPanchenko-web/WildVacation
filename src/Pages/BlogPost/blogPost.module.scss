@@ -1,0 +1,58 @@
+@use "../../styles/vars.scss" as *;
+.blog {
+  padding-top: 200px;
+  margin-bottom: 100px;
+  .container {
+    @extend %container;
+    @media (max-width: 1024px) {
+      text-align: left;
+    }
+    .blog-wrapper {
+      .blog-title {
+        @extend %sectionTitle;
+        text-align: left;
+      }
+      .blog-img {
+        width: 50%;
+        margin-bottom: 50px;
+        margin: auto;
+        img {
+          width: 100%;
+          border-radius: 4px 4px 0 0;
+        }
+      }
+
+      .blog-details {
+        font-size: 15px;
+        line-height: 22px;
+        margin-bottom: 100px;
+        h2 {
+          margin-bottom: 30px;
+        }
+        h3,
+        p,
+        li {
+          margin-bottom: 15px;
+          list-style: none;
+        }
+      }
+      .blog-info {
+        .blog-date {
+          font-size: 13px;
+          font-weight: 500;
+          margin-bottom: 15px;
+          opacity: 0.5;
+          margin-bottom: 50px;
+        }
+      }
+      .blog-likes {
+        svg {
+          margin-right: 6px;
+        }
+        svg.checked {
+          color: $accentColor;
+        }
+      }
+    }
+  }
+}

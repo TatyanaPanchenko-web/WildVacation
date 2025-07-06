@@ -1,0 +1,62 @@
+@use "../../styles/vars.scss" as *;
+.footer {
+  .container {
+    @extend %container;
+    .footer-wrapper {
+      padding: 30px 0;
+      display: flex;
+      justify-content: space-between;
+      @media (max-width: 1024px) {
+        flex-direction: column;
+        align-items: center;
+      }
+      .footer-column {
+        font-size: 13px;
+        line-height: 16px;
+        @media (max-width: 1024px) {
+          margin-bottom: 50px;
+        }
+
+        .footer-inner {
+          display: flex;
+          margin-bottom: 15px;
+          .footer-name {
+            color: $accentColor;
+            margin-right: 26px;
+          }
+          .footer-name p:not(:last-child) {
+            margin-bottom: 15px;
+          }
+          .footer-info a {
+            text-decoration: none;
+            color: $mainColor;
+          }
+          .footer-info p {
+            margin-bottom: 5px;
+          }
+          .footer-info a:not(:last-child) {
+            display: block;
+            margin-bottom: 5px;
+          }
+        }
+        .footer-social {
+          color: $accentColor;
+          margin-bottom: 10px;
+        }
+
+        .footer-icons span {
+          margin-right: 24px;
+          vertical-align: middle;
+        }
+        .footer-icons span:last-child {
+          margin-right: 0;
+        }
+      }
+      .footer-column:last-child {
+        @media (max-width: 1024px) {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}

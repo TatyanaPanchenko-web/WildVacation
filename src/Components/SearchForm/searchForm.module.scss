@@ -1,0 +1,74 @@
+@use "../../styles/vars.scss" as *;
+
+.form-name {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 24px;
+}
+.input-where,
+.input-duration,
+.select-type {
+  @include inputWidth(100%);
+}
+.select-type {
+  appearance: none;
+  -webkit-appearance: none; /* Для Safari */
+  -moz-appearance: none; /* Для Firefox */
+}
+
+.input-where:focus::placeholder,
+.input-duration:focus::placeholder {
+  color: transparent;
+  border: none;
+}
+.input-where {
+  background-image: url("../icons/search.svg");
+  background-repeat: no-repeat;
+  background-size: 17px;
+  background-position: 97%;
+}
+.input-duration-block {
+  position: relative;
+}
+.input-duration {
+  appearance: none;
+}
+
+.input-duration-block::after {
+  content: "дней / ночей";
+  color: $mainColor;
+  font-size: 12px;
+  position: absolute;
+  right: 10px;
+  top: 30%;
+}
+
+.select-type {
+  @include inputWidth(100%);
+  appearance: none;
+  color: $mainColor;
+  background-image: url("../icons/arrow.svg");
+  background-repeat: no-repeat;
+  background-size: 17px;
+  background-position: 97%;
+  option {
+    color: $secondaryColor;
+  }
+}
+
+input::placeholder {
+  color: $mainColor;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 16px;
+}
+input[type="submit"] {
+  @extend %input-btn;
+}
+input {
+  color: $mainColor;
+}
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

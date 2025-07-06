@@ -1,0 +1,22 @@
+@use "../../styles/vars.scss" as *;
+.blogs {
+  padding-top: 200px;
+  margin-bottom: 100px;
+  .container {
+    @extend %container;
+    .blogs-title {
+      @extend %pageTitle;
+    }
+    .blogs-wrapper {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      .skeleton {
+        display: flex;
+      }
+      .error {
+        text-align: center;
+      }
+    }
+  }
+}

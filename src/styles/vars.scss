@@ -1,0 +1,77 @@
+$font: "Montserrat", sans-serif;
+$background: #1b1e22;
+$mainColor: #ffffff;
+$accentColor: #ffb800;
+$secondaryColor: #333333;
+$bgColor: #23282f;
+
+%btn {
+  display: inline-block;
+  color: $mainColor;
+  text-decoration: none;
+  border: 1px solid $accentColor;
+  border-radius: 10px;
+  padding: 15px 30px;
+  background: transparent;
+  font-family: $font;
+  font-size: 18px;
+}
+
+%btn:hover {
+  background-color: $accentColor;
+  color: $background;
+}
+%input-btn {
+  background-color: $accentColor;
+  color: $secondaryColor;
+  font-family: $font;
+  cursor: pointer;
+  border-radius: 6px;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px;
+  border: 0;
+  padding: 6px 0 8px;
+}
+%input-btn:hover {
+  background-color: transparent;
+  color: $mainColor;
+  border: 1px solid $accentColor;
+}
+%sectionTitle {
+  font-size: 34px;
+  font-weight: 500;
+  line-height: 38px;
+  text-align: center;
+  margin-bottom: 45px;
+}
+%pageTitle {
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 38px;
+  text-align: center;
+  margin-bottom: 45px;
+}
+@mixin inputWidth($width) {
+  background: transparent;
+  border: 1px solid $mainColor;
+  border-radius: 4px;
+  padding: 9px 0 12px 13px;
+  width: $width;
+  @media (max-width: 1024px) {
+    padding: 15px 0 15px 13px;
+    width: 100%;
+  }
+}
+%container {
+  max-width: 1193px;
+  margin: 0 auto;
+  padding: 0 30px;
+  @media (max-width: 1500px) {
+    max-width: 90%;
+  }
+  @media (max-width: 1024px) {
+    text-align: center;
+    padding: 0 15px;
+  }
+}

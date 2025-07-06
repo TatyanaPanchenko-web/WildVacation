@@ -1,0 +1,16 @@
+@use "../../styles/vars.scss" as *;
+.not-found {
+  padding-top: 200px;
+  margin-bottom: 100px;
+  flex: 1 1 auto;
+  .container {
+    @extend %container;
+    @media (max-width: 1024px) {
+      text-align: left;
+    }
+    .not-found-wrapper {
+      text-align: center;
+      font-size: 20px;
+    }
+  }
+}

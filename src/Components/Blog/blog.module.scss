@@ -1,0 +1,33 @@
+@use "../../styles/vars.scss" as *;
+.blog {
+  text-align: center;
+
+  margin-bottom: 120px;
+  .container {
+    @extend %container;
+    .section-title {
+      @extend %sectionTitle;
+      margin-bottom: 44px;
+      @media (max-width: 1200px) {
+        font-size: 36px;
+      }
+      @media (max-width: 768px) {
+        font-size: 20px;
+      }
+    }
+    .blog-wrapper {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin: 0 auto;
+      margin-bottom: 48px;
+      row-gap: 50px;
+    }
+    .btn {
+      @extend %btn;
+    }
+    .error {
+      margin: auto;
+    }
+  }
+}

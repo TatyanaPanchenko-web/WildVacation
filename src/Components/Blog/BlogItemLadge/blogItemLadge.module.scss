@@ -1,0 +1,52 @@
+@use "../../../styles/vars.scss" as *;
+.blog-large {
+  position: relative;
+  flex-basis: 46%;
+  background-image: linear-gradient(
+    to top,
+    rgba(27, 30, 34, 0.78),
+    rgba(27, 30, 34, 0.78)
+  );
+  text-decoration: none;
+  color: $mainColor;
+  transition: all 0.5s ease-in-out;
+  @media (max-width: 1200px) {
+    flex-basis: 100%;
+    margin-bottom: 30px;
+  }
+  img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    object-fit: cover;
+    z-index: -2;
+    border-radius: 4px;
+    @media (max-width: 1200px) {
+      object-position: top;
+    }
+  }
+  .about {
+    padding: 50px 50px 200px;
+    transition: all 0.5s ease-in-out;
+    p {
+      font-size: 30px;
+      font-weight: 500;
+      line-height: 38px;
+      margin-bottom: 28px;
+      @media (max-width: 1200px) {
+        position: relative;
+      }
+    }
+    span {
+      font-size: 13px;
+      line-height: 16px;
+    }
+  }
+}
+.blog-large:hover .about {
+  transform: scale(1.1);
+}

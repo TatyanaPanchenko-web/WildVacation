@@ -1,0 +1,33 @@
+@use "../../styles/vars.scss" as *;
+.about {
+  padding-top: 200px;
+  margin-bottom: 100px;
+  .container {
+    @extend %container;
+    .about-title {
+      @extend %pageTitle;
+    }
+    .about-wrapper {
+      line-height: 22px;
+      h2,
+      h3 {
+        text-align: center;
+      }
+      h2,
+      h3,
+      p,
+      li {
+        margin-bottom: 15px;
+        list-style: none;
+      }
+      .about-img {
+        width: 50%;
+        margin: 30px auto;
+        img {
+          width: 100%;
+          border-radius: 4px 4px 0 0;
+        }
+      }
+    }
+  }
+}

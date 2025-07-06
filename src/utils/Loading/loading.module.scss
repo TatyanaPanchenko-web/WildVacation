@@ -1,0 +1,41 @@
+@use "../../styles/vars.scss" as *;
+.loading-wrapper {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: $background;
+  .loading-inner {
+    height: 100%;
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    .circle {
+      background: $accentColor;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      animation: animationLoading 1.5s infinite ease-in-out;
+    }
+    .circle:nth-child(2) {
+      animation-delay: 0.15s;
+    }
+    .circle:nth-child(3) {
+      animation-delay: 0.3s;
+    }
+    @keyframes animationLoading {
+      0%,
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      50% {
+        transform: translateY(-30px);
+        opacity: 0.5;
+      }
+    }
+  }
+}
