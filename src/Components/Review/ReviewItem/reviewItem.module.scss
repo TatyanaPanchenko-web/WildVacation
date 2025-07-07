@@ -1,12 +1,7 @@
 @use "../../../styles/vars.scss" as *;
 .review-wrapper {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  top: 0;
-  right: 0;
   opacity: 0;
-
+  min-width: 100%;
   img {
     width: 100px;
     height: 100px;
@@ -15,7 +10,7 @@
     object-fit: cover;
   }
   .review-text {
-    font-size: 24px;
+    font-size: 20px;
     line-height: 32px;
     margin-bottom: 6px;
     @media (max-width: 768px) {
@@ -33,6 +28,9 @@
 .activeSlide {
   transform: translateX(0);
   opacity: 1;
+  position: absolute;
+  top: 0;
+  bottom: 0;
 }
 .nextSlide {
   transform: translateX(100%);

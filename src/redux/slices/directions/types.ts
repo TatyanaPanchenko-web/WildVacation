@@ -1,4 +1,4 @@
-export interface directionsSliceState {
+export interface DirectionsSliceState {
   directions: DirectionsElementType[];
   limitDirections: number;
   search: Record<string, string>;

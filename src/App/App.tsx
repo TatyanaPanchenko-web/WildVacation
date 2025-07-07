@@ -30,15 +30,6 @@ export default function App() {
           <Route path="/tour/:id" element={<Tour />} />
           <Route path="/blogpost/:id" element={<BlogPost />} />
           <Route path="*" element={<ErrorPage />} />
-          {/* {directions.map((item) => (
-          <Route path={`/tour/${item.id}`} element={<Tour item={item} />} />
-        ))} */}
-          {/* {blogItems.map((item) => (
-          <Route
-            path={`/blogpost/${item.id}`}
-            element={<BlogPost item={item} />}
-          />
-        ))} */}
         </Routes>
       </Suspense>
       <Footer />

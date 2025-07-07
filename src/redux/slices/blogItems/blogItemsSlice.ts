@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../../store";
-import { BlogElementType, blogItemsSliceState } from "./types";
+import { BlogElementType, BlogItemsSliceState } from "./types";
 
 export const fetchAddBlogItems = createAsyncThunk(
   "blogItems/fetchBlogItemsArr",
@@ -13,7 +13,7 @@ export const fetchAddBlogItems = createAsyncThunk(
     return (await result.json()) as BlogElementType[];
   }
 );
-const initialState: blogItemsSliceState = {
+const initialState: BlogItemsSliceState = {
   blogItems: [],
   limitBlogItems: 3,
   statusBlogItems: "loading", //"success", "error"

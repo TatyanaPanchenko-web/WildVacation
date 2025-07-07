@@ -44,7 +44,7 @@ export default function ModalCall({
         <div onClick={handleCloseIcon} className={style.close}></div>
         {!submitForm ? (
           <div className={style["form-wrapper"]}>
-            <p className={style["form-name"]}>Нужна помощь?</p>
+            <p className={style["form-title"]}>Нужна помощь?</p>
             <p className={style["form-subtitle"]}>
               Закажите обратный звонок и мы обязательно перезвоним через 10
               минут

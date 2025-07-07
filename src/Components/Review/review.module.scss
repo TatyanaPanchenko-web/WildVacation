@@ -2,45 +2,39 @@
 .review {
   text-align: center;
   display: flex;
-  max-width: 924px;
+  max-width: 85%;
   margin: 0 auto;
-  margin-bottom: 60px;
+  margin-bottom: 100px;
+  overflow: hidden;
   .container {
     @extend %container;
     width: 100%;
-    overflow: hidden;
     .section-title {
       @extend %sectionTitle;
     }
     .review-items {
+      display: flex;
       position: relative;
-      min-height: 360px;
-      @media (max-width: 768px) {
-        min-height: 400px;
-      }
       .arrow {
         position: absolute;
-        top: 50%;
         fill: $accentColor;
+        bottom: 30%;
         cursor: pointer;
-        @media (max-width: 1024px) {
-          top: 90%;
-        }
-        @media (max-width: 490px) {
-          visibility: hidden;
+        @media (max-width: 1200px) {
+          bottom: 80%;
         }
       }
       .arrow-left {
-        left: -30px;
-        @media (max-width: 1024px) {
-          left: 42%;
+        left: -40px;
+        @media (max-width: 1200px) {
+          left: 10px;
         }
       }
-      .arrow-right {
-        right: -30px;
-        @media (max-width: 1024px) {
-          right: 42%;
-        }
+    }
+    .arrow-right {
+      right: -40px;
+      @media (max-width: 1200px) {
+        right: 10px;
       }
     }
   }

@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../../store";
-import { DirectionsElementType, directionsSliceState, Params } from "./types";
+import { DirectionsElementType, DirectionsSliceState, Params } from "./types";
 
 export const fetchAddDirections = createAsyncThunk(
   "directions/fetchDirectionsArr",
@@ -20,7 +20,7 @@ export const fetchAddDirections = createAsyncThunk(
     return (await result.json()) as DirectionsElementType[];
   }
 );
-const initialState: directionsSliceState = {
+const initialState: DirectionsSliceState = {
   directions: [],
   limitDirections: 3,
   search: {

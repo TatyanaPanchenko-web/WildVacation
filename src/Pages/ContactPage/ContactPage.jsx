@@ -5,6 +5,7 @@ import { useState } from "react";
 //   Placemark,
 //   FullscreenControl,
 // } from "@pbe/react-yandex-maps";
+import arrTabs from "../../data/contacts.json";
 import style from "./contactPage.module.scss";
 
 export default function ContactPage() {
@@ -12,23 +13,7 @@ export default function ContactPage() {
   const handleClickTab = (index) => {
     setActivetab(index);
   };
-  const arrTabs = [
-    {
-      name: "Минск",
-      address: "г. Минск, ул. Орловская, 59-118",
-      coordinates: [53.9304, 27.5384],
-    },
-    {
-      name: "Гродно",
-      address: "г. Гродно, ул. Антонова, 14-5",
-      coordinates: [53.6747, 23.8417],
-    },
-    {
-      name: "Брест",
-      address: "г. Брест, ул. Московская, 247-61",
-      coordinates: [52.0963, 23.749],
-    },
-  ];
+
   return (
     <div className={style.contact}>
       <div className={style.container}>

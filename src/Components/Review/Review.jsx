@@ -1,39 +1,13 @@
 import { useState, useEffect } from "react";
 import ReviewItem from "./ReviewItem/ReviewItem";
+import arrReviews from "../../data/reviews.json"
 import style from "./review.module.scss";
 
 export default function Review() {
-  const arrReviews = [
-    {
-      img: "./main/review1.jpg",
-      text: "Спасибо, что даете почувствовать себя сводобными! Ходили дважды, и каждый раз заряжались энергией на год вперед. Отдельное спасибо гиду Михаилу!",
-      name: "Максим",
-    },
-    {
-      img: "./main/review2.jpg",
-      text: "Всё было организовано на высшем уровне: от выбора направления до оформления документов. Менеджеры были очень внимательными и профессиональными, помогли подобрать тур, идеально соответствующий моим пожеланиям и бюджету.",
-      name: "Олег",
-    },
-    {
-      img: "./main/review3.jpg",
-      text: "Я в восторге, таких эмоций не испытывала никогда. Легкость, слиянеие с природой, умиротворение, свобода... Каждому надо исытать такие эмоции хоть раз в жизни. Спасибо, ребята, за вашу работу!",
-      name: "Анна",
-    },
-    {
-      img: "./main/review4.jpg",
-      text: "Наш поход прошёл просто отлично! Особенно понравилось, что компания учитывала уровень подготовки участников и подбирала маршруты соответственно",
-      name: "Максим",
-    },
-
-    {
-      img: "./main/review5.jpg",
-      text: "Виды — просто потрясающие: заснеженные вершины, зеленые долины и кристально чистые озера. Особенно запомнились ночевки в уютных кемпингах под звездами и моменты, когда мы достигали вершины после долгого подъема.",
-      name: "Дмитрий",
-    },
-  ];
+ 
   const [currentIndex, setCurrentIndex] = useState(0);
   useEffect(() => {
-    let slider = setInterval(() => setCurrentIndex((prev) => prev + 1), 3000);
+    let slider = setInterval(() => setCurrentIndex((prev) => prev + 1), 200000);
     return () => {
       clearInterval(slider);
     };
