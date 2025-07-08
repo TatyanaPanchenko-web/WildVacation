@@ -1,4 +1,4 @@
-export interface BlogItemsSliceState {
+export interface BlogItemsSliceType {
   blogItems: BlogElementType[];
   limitBlogItems: number;
   statusBlogItems: "loading" | "success" | "error";

@@ -1,14 +1,27 @@
-import { useState } from "react";
-import style from "./blogPost.module.scss";
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { selectBlogItems } from "../../redux/slices/blogItems/blogItemsSlice";
+import { useAppDispatch } from "../../redux/store";
+import {
+  fetchAddBlogItems,
+  selectBlogItems,
+} from "../../redux/slices/blogItems/blogItemsSlice";
+import style from "./blogPost.module.scss";
 
 export default function BlogPost() {
   const [checkLike, setCheckLike] = useState(false);
   const { blogItems } = useSelector(selectBlogItems);
+  const dispatch = useAppDispatch();
+  useEffect(() => {
+    console.log(true);
+    if (!blogItems || blogItems.length == 0) {
+      console.log("if");
+      dispatch(fetchAddBlogItems());
+    }
+  }, []);
+  console.log(blogItems);
   const { id } = useParams();
-  console.log(blogItems, id);
+
   const item = blogItems.find((obj) => obj.id === id);
   if (!item) {
     return;

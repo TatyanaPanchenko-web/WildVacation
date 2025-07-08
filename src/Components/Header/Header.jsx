@@ -63,7 +63,7 @@ export default function Header({ setOpenModalCall }) {
               <img
                 onClick={() => handleBurgerOpen()}
                 className={style["burger-open"]}
-                src="./icons/menu.svg"
+                src="../icons/menu.svg"
                 alt="menu"
               />
 
@@ -78,7 +78,7 @@ export default function Header({ setOpenModalCall }) {
                 <img
                   onClick={() => handleBurgerClose()}
                   className={style["burger-close"]}
-                  src="./icons/close.svg"
+                  src="../icons/close.svg"
                   alt="close"
                 />
                 <nav>

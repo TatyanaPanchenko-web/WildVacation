@@ -11,9 +11,11 @@
     "deploy": "firebase deploy"
   },
   "dependencies": {
+    "@hookform/resolvers": "^5.1.1",
     "@reduxjs/toolkit": "^2.8.2",
     "firebase": "^11.10.0",
     "i18next": "^25.2.1",
+    "libphonenumber-js": "^1.12.9",
     "react": "^19.1.0",
     "react-content-loader": "^7.0.2",
     "react-dom": "^19.1.0",

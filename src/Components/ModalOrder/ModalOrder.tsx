@@ -1,7 +1,10 @@
-import { useState, useEffect } from "react";
-import * as yup from "yup";
-
-import { SubmitErrorHandler, SubmitHandler, useForm } from "react-hook-form";
+import { useState } from "react";
+import { useForm, SubmitHandler } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { orderSchema } from "../../utils/schema";
+import normalizePhone from "../../utils/normalizePhone";
+import { useAppDispatch } from "../../redux/store";
+import { setDataOrders } from "../../redux/slices/forms/formsSlice";
 import style from "./modalOrder.module.scss";
 
 type ModalOrderProps = {
@@ -11,7 +14,7 @@ type ModalOrderProps = {
 type FormValue = {
   name: string;
   count: number;
-  phone: number;
+  phone: string;
 };
 
 export default function ModalOrder({
@@ -22,59 +25,29 @@ export default function ModalOrder({
   const {
     register,
     handleSubmit,
-    getValues,
     reset,
-    formState: { errors },
+    formState: { errors, isValid },
   } = useForm<FormValue>({
-    // resolver:,
-    // defaultValues: {
-    //   count: 1,
-    // },
+    mode: "onTouched",
+    resolver: yupResolver(orderSchema),
   });
-  const schema = yup.object().shape({
-    name:yup.string().required("Поле обязательно для заполнения").min(3, "Имя должно иметь минимум 3 символа ")
-  });
-  console.log(errors);
+
+  const dispatch = useAppDispatch();
+
   const submit: SubmitHandler<FormValue> = (data) => {
-    console.log(data);
+    dispatch(setDataOrders(data));
+    setSubmitForm(true);
+    reset();
   };
-  const error: SubmitErrorHandler<FormValue> = (data) => {
-    console.log(data);
-  };
-  const checkName = () => {
-    if (getValues.name < 4) {
-      return "Имя должно быть больше 3 символов";
-    }
-    return true;
-  };
-  // useEffect(() => {
-  //   const telRegex = /^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/;
-  //   if (telRegex.test(telInput) || telInput === "") {
-  //     setErrInput(false);
-  //   } else {
-  //     setErrInput(true);
-  //   }
-  // }, [telInput]);
 
   const handleCloseIcon = () => {
     setOpenModalOrder(false);
     setSubmitForm(false);
   };
-  // const handleForm = (e) => {
-  //   e.preventDefault();
-  //   const telRegex = /^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/;
-  //   if (telRegex.test(telInput)) {
-  //     setSubmitForm(true);
-  //     setTelInput("");
-  //     setErrInput(false);
-  //   } else {
-  //     setErrInput(true);
-  //   }
-  // };
-  // console.log(openModalOrder);
+
   return (
     <div className={`${style.modal} ${openModalOrder ? `${style.show}` : ""}`}>
-      <form className={style.form} onSubmit={handleSubmit(submit, error)}>
+      <form className={style.form} onSubmit={handleSubmit(submit)}>
         <div onClick={handleCloseIcon} className={style.close}></div>
         {!submitForm ? (
           <div className={style["form-wrapper"]}>
@@ -82,40 +55,44 @@ export default function ModalOrder({
               Укажите данные для бронирования тура
             </p>
             <input
-              className={style.name}
               type="text"
               placeholder="Имя, фамилия"
               {...register("name", {
                 required: true,
-                validate: checkName,
               })}
               aria-invalid={errors.name ? true : false}
             />
-            {errors.name ? (
-              <span className={style.error}>
-                Поле обязательно для заполнения
-              </span>
-            ) : (
-              ""
+            {errors?.name?.message && (
+              <span className={style.error}>{errors?.name?.message}</span>
             )}
+
             <input
-              className={style.count}
               type="number"
               placeholder="Количество участников"
               {...register("count")}
+              aria-invalid={errors.count ? true : false}
             />
+            {errors?.count?.message && (
+              <span className={style.error}>{errors?.count?.message}</span>
+            )}
             <input
-              className={style.phone}
               type="tel"
-              placeholder="+375(__)___-__-__"
-              required
+              placeholder="+375 __ ___ __ __"
               {...register("phone")}
-              // value={telInput}
-              // onChange={(e) => setTelInput(e.target.value)}
+              aria-invalid={errors.phone ? true : false}
+              onChange={(e) => {
+                e.target.value = normalizePhone(e.target.value);
+              }}
             />
-            {/* {errInput && <p className={style.error}>Введите номер телефона</p>} */}
+            {errors?.phone?.message && (
+              <span className={style.error}>{errors?.phone?.message}</span>
+            )}
 
-            <input type="submit" value="Забронировать тур" />
+            <input
+              type="submit"
+              disabled={!isValid}
+              value="Забронировать тур"
+            />
           </div>
         ) : (
           <div className={style["form-success"]}>

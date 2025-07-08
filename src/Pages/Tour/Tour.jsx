@@ -1,13 +1,24 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { selectDirections } from "../../redux/slices/directions/directionsSlice";
-import style from "./tour.module.scss";
+import { useAppDispatch } from "../../redux/store";
+import {
+  fetchAddDirections,
+  selectDirections,
+} from "../../redux/slices/directions/directionsSlice";
 import ModalOrder from "../../Components/ModalOrder/ModalOrder";
+import style from "./tour.module.scss";
 
 export default function Tour() {
   const [openModalOrder, setOpenModalOrder] = useState(false);
   const { directions } = useSelector(selectDirections);
+
+  const dispatch = useAppDispatch();
+  useEffect(() => {
+    if (!directions || directions.length == 0) {
+      dispatch(fetchAddDirections({}));
+    }
+  }, []);
   const { id } = useParams();
   const item = directions.find((obj) => obj.id == id);
   if (!item) {
@@ -15,6 +26,7 @@ export default function Tour() {
   }
   const { title, description, price, date, img, details, duration, type } =
     item;
+
   const handleModal = () => {
     setOpenModalOrder(true);
   };

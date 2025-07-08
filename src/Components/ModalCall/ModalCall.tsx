@@ -1,46 +1,51 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { useForm, SubmitHandler } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { callSchema } from "../../utils/schema";
+import normalizePhone from "../../utils/normalizePhone";
+import { useAppDispatch } from "../../redux/store";
+import { setDataCalls } from "../../redux/slices/forms/formsSlice";
 import style from "./modalCall.module.scss";
 
 type ModalCallProps = {
   openModalCall: boolean;
   setOpenModalCall: React.Dispatch<React.SetStateAction<boolean>>;
 };
-
+type FormValue = {
+  phone: string;
+  question: string;
+};
 export default function ModalCall({
   openModalCall,
   setOpenModalCall,
 }: ModalCallProps) {
   const [submitForm, setSubmitForm] = useState(false);
-  const [telInput, setTelInput] = useState("");
-  const [errInput, setErrInput] = useState(false);
 
-  useEffect(() => {
-    const telRegex = /^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/;
-    if (telRegex.test(telInput) || telInput === "") {
-      setErrInput(false);
-    } else {
-      setErrInput(true);
-    }
-  }, [telInput]);
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, isValid },
+  } = useForm<FormValue>({
+    mode: "onTouched",
+    resolver: yupResolver(callSchema),
+  });
+
+  const dispatch = useAppDispatch();
+  const submit: SubmitHandler<FormValue> = (data) => {
+    dispatch(setDataCalls(data));
+    setSubmitForm(true);
+    reset();
+  };
+
   const handleCloseIcon = () => {
     setOpenModalCall(false);
     setSubmitForm(false);
   };
-  const handleForm = (e) => {
-    e.preventDefault();
-    const telRegex = /^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/;
-    if (telRegex.test(telInput)) {
-      setSubmitForm(true);
-      setTelInput("");
-      setErrInput(false);
-    } else {
-      setErrInput(true);
-    }
-  };
-
+  console.log(errors, isValid);
   return (
     <div className={`${style.modal} ${openModalCall ? `${style.show}` : ""}`}>
-      <form className={style.form} onSubmit={(e) => handleForm(e)}>
+      <form className={style.form} onSubmit={handleSubmit(submit)}>
         <div onClick={handleCloseIcon} className={style.close}></div>
         {!submitForm ? (
           <div className={style["form-wrapper"]}>
@@ -50,25 +55,27 @@ export default function ModalCall({
               минут
             </p>
             <input
-              className={style["phone"]}
               type="tel"
-              placeholder="+375(__)___-__-__"
-              required
-              value={telInput}
-              onChange={(e) => setTelInput(e.target.value)}
+              placeholder="+375 __ ___ __ __"
+              {...register("phone")}
+              aria-invalid={errors.phone ? true : false}
+              onChange={(e) => {
+                e.target.value = normalizePhone(e.target.value);
+              }}
             />
-            {errInput && <p className={style.error}>Введите номер телефона</p>}
-
+            {errors?.phone?.message && (
+              <span className={style.error}>{errors?.phone?.message}</span>
+            )}
             <textarea
               rows={7}
-              className={style["content"]}
               placeholder="Оставьте Ваш вопрос"
+              {...register("question")}
+              aria-invalid={errors.question ? true : false}
             />
-            <input
-              // onClick={(e) => handleSubmitForm(e)}
-              type="submit"
-              value="Жду звонка!"
-            />
+            {errors?.question?.message && (
+              <span className={style.error}>{errors?.question?.message}</span>
+            )}
+            {<input type="submit" disabled={!isValid} value="Жду звонка!" />}
           </div>
         ) : (
           <div className={style["form-success"]}>

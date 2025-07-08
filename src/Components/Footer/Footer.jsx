@@ -46,22 +46,22 @@ export default function Footer() {
             <div className={style["footer-icons"]}>
               <span>
                 <Link to="https://www.instagram.com/" target="_blank">
-                  <img src="./icons/instagram.svg" alt="instagram" />
+                  <img src="../icons/instagram.svg" alt="instagram" />
                 </Link>
               </span>
               <span>
                 <Link to="https://vk.com/" target="_blank">
-                  <img src="./icons/vk.svg" alt="vk" />
+                  <img src="../icons/vk.svg" alt="vk" />
                 </Link>
               </span>
               <span>
                 <Link to="https://x.com/" target="_blank">
-                  <img src="./icons/twitter.svg" alt="twitter" />
+                  <img src="../icons/twitter.svg" alt="twitter" />
                 </Link>
               </span>
               <span>
                 <Link to="https://www.facebook.com/" target="_blank">
-                  <img src=" ./icons/facebook.svg" alt="facebook" />
+                  <img src="../icons/facebook.svg" alt="facebook" />
                 </Link>
               </span>
             </div>
