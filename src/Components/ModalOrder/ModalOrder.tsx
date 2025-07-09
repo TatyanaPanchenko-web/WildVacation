@@ -26,9 +26,9 @@ export default function ModalOrder({
     register,
     handleSubmit,
     reset,
-    formState: { errors, isValid },
+    formState: { errors },
   } = useForm<FormValue>({
-    mode: "onChange",
+    mode: "onSubmit",
     resolver: yupResolver(orderSchema),
   });
 
@@ -88,11 +88,7 @@ export default function ModalOrder({
               <span className={style.error}>{errors?.phone?.message}</span>
             )}
 
-            <input
-              type="submit"
-              disabled={!isValid}
-              value="Забронировать тур"
-            />
+            <input type="submit" value="Забронировать тур" />
           </div>
         ) : (
           <div className={style["form-success"]}>

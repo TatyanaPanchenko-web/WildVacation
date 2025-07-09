@@ -173,14 +173,6 @@ $bgColor: #23282f;
     color: $secondaryColor;
     width: 100%;
   }
-  input[type="submit"]:disabled {
-    opacity: 0.5;
-    cursor: none;
-  }
-  input[type="submit"]:disabled:hover {
-    background-color: $accentColor;
-    color: $secondaryColor;
-  }
   .form-success {
     width: 360px;
     text-align: center;

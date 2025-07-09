@@ -20,20 +20,20 @@
         fill: $accentColor;
         bottom: 30%;
         cursor: pointer;
-        @media (max-width: 1200px) {
+        @media (max-width: 1600px) {
           bottom: 80%;
         }
       }
       .arrow-left {
-        left: -40px;
-        @media (max-width: 1200px) {
+        left: -100px;
+        @media (max-width: 1600px) {
           left: 10px;
         }
       }
     }
     .arrow-right {
-      right: -40px;
-      @media (max-width: 1200px) {
+      right: -100px;
+      @media (max-width: 1600px) {
         right: 10px;
       }
     }

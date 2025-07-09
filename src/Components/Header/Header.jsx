@@ -26,7 +26,7 @@ export default function Header({ setOpenModalCall }) {
             <NavLink to="/" className={style.logo}>
               <img src={logo} alt="logo" />
             </NavLink>
-            <div className={style.language}>
+            {/* <div className={style.language}>
               <a className={style["language-switch"]} href="#">
                 Eng
               </a>
@@ -36,7 +36,7 @@ export default function Header({ setOpenModalCall }) {
               >
                 Рус
               </a>
-            </div>
+            </div> */}
           </div>
           <div className={style["header-right"]}>
             <nav className={style.nav}>

@@ -25,9 +25,9 @@ export default function ModalCall({
     register,
     handleSubmit,
     reset,
-    formState: { errors, isValid },
+    formState: { errors },
   } = useForm<FormValue>({
-    mode: "onChange",
+    mode: "onSubmit",
     resolver: yupResolver(callSchema),
   });
 
@@ -42,7 +42,7 @@ export default function ModalCall({
     setOpenModalCall(false);
     setSubmitForm(false);
   };
-  console.log(errors, isValid);
+
   return (
     <div className={`${style.modal} ${openModalCall ? `${style.show}` : ""}`}>
       <form className={style.form} onSubmit={handleSubmit(submit)}>
@@ -75,7 +75,7 @@ export default function ModalCall({
             {errors?.question?.message && (
               <span className={style.error}>{errors?.question?.message}</span>
             )}
-            {<input type="submit" disabled={!isValid} value="Жду звонка!" />}
+            {<input type="submit" value="Жду звонка!" />}
           </div>
         ) : (
           <div className={style["form-success"]}>
