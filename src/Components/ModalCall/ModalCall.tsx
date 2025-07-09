@@ -27,7 +27,7 @@ export default function ModalCall({
     reset,
     formState: { errors, isValid },
   } = useForm<FormValue>({
-    mode: "onTouched",
+    mode: "onChange",
     resolver: yupResolver(callSchema),
   });
 

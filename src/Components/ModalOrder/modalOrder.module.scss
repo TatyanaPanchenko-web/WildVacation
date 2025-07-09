@@ -1,4 +1,7 @@
 @use "../../styles/vars.scss" as *;
 .modal {
   @extend %modal;
+  .form-wrapper > .form-title {
+    font-size: 16px;
+  }
 }

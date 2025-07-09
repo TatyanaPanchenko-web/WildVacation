@@ -1,5 +1,9 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { FormSliceType } from "./types";
+import {
+  FormSliceType,
+  FormsOrderElementType,
+  FormsCalllementType,
+} from "./types";
 import { RootState } from "../../store";
 
 const initialState: FormSliceType = {
@@ -10,10 +14,11 @@ const formSlice = createSlice({
   name: "forms",
   initialState,
   reducers: {
-    setDataOrders: (state, action: PayloadAction<string>) => {
+    setDataOrders: (state, action: PayloadAction<FormsOrderElementType>) => {
       state.orders.push(action.payload);
     },
-    setDataCalls: (state, action: PayloadAction<string>) => {
+    setDataCalls: (state, action: PayloadAction<FormsCalllementType>) => {
+      console.log(action);
       state.calls.push(action.payload);
     },
   },

@@ -150,6 +150,9 @@ $bgColor: #23282f;
       width: 100%;
     }
   }
+  input[type="number"] {
+    appearance: none;
+  }
   input::placeholder {
     color: $mainColor;
     opacity: 0.5;
@@ -167,6 +170,7 @@ $bgColor: #23282f;
   }
   input[type="submit"] {
     @extend %input-btn;
+    color: $secondaryColor;
     width: 100%;
   }
   input[type="submit"]:disabled {

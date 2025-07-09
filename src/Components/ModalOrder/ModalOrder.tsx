@@ -28,7 +28,7 @@ export default function ModalOrder({
     reset,
     formState: { errors, isValid },
   } = useForm<FormValue>({
-    mode: "onTouched",
+    mode: "onChange",
     resolver: yupResolver(orderSchema),
   });
 
