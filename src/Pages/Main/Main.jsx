@@ -1,3 +1,6 @@
+import { useEffect } from "react";
+import { useAppDispatch } from "../../redux/store";
+import { clearSearchValue } from "../../redux/slices/directions/directionsSlice";
 import Content from "../../Components/Content/Content";
 import Features from "../../Components/Features/Features";
 import Directions from "../../Components/Directions/Directions";
@@ -6,6 +9,11 @@ import Blog from "../../Components/Blog/Blog";
 import Review from "../../Components/Review/Review";
 
 export default function Main() {
+  const dispatch = useAppDispatch();
+  useEffect(() => {
+    dispatch(clearSearchValue()), [];
+  });
+
   return (
     <>
       <Content />

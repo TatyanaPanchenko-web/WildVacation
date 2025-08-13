@@ -13,13 +13,11 @@ export default function BlogPost() {
   const { blogItems } = useSelector(selectBlogItems);
   const dispatch = useAppDispatch();
   useEffect(() => {
-    console.log(true);
     if (!blogItems || blogItems.length == 0) {
-      console.log("if");
       dispatch(fetchAddBlogItems());
     }
   }, []);
-  console.log(blogItems);
+
   const { id } = useParams();
 
   const item = blogItems.find((obj) => obj.id === id);
@@ -27,8 +25,6 @@ export default function BlogPost() {
     return;
   }
   const { title, date, img, details, likes } = item;
-
-  // const [countLike, setCountLike] = useState(likes);
 
   const handleClickLike = () => {
     if (checkLike) {

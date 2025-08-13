@@ -29,6 +29,7 @@ const initialState: DirectionsSliceType = {
     searchType: "",
   },
   statusDirections: "loading", //success, error
+  resultSearch: true,
 };
 
 export const directionsSlice = createSlice({

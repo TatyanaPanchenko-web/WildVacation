@@ -18,7 +18,6 @@ const formSlice = createSlice({
       state.orders.push(action.payload);
     },
     setDataCalls: (state, action: PayloadAction<FormsCalllementType>) => {
-      console.log(action);
       state.calls.push(action.payload);
     },
   },

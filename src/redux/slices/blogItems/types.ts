@@ -9,6 +9,6 @@ export type BlogElementType = {
   title: string;
   date: string;
   description: string;
-  likes: Number;
+  likes: number;
   details: string;
 };

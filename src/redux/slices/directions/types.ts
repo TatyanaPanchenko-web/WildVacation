@@ -3,6 +3,7 @@ export interface DirectionsSliceType {
   limitDirections: number;
   search: Record<string, string>;
   statusDirections: "loading" | "success" | "error";
+  resultSearch: boolean;
 }
 
 export type DirectionsElementType = {

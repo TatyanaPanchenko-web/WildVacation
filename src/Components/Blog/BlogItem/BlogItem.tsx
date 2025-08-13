@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import style from "./blogItem.module.scss";
-import { BlogElementType } from "../../../redux/slices/blogItemsSlice";
+import { BlogElementType } from "../../../redux/slices/blogItems/types";
 
 export default function BlogItem({
   id,

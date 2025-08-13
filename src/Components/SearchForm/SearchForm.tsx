@@ -6,7 +6,6 @@ import {
   setSearchValueWhere,
   setSearchValueDuration,
   setSearchValueType,
-  clearSearchValue,
   selectSearchValues,
 } from "../../redux/slices/directions/directionsSlice";
 import style from "./searchForm.module.scss";
@@ -27,12 +26,9 @@ export default function SearchForm() {
         searchType,
       })
     );
-    // dispatch(clearSearchValue());
+
     navigate("/tours");
   };
-  // useEffect(() => {
-  //   handleSubmitForm();
-  // }, []);
 
   return (
     <>

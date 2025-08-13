@@ -31,6 +31,7 @@ export default function Directions() {
             [...new Array(3)].map((_, index) => <Skeleton key={index} />)}
           {statusDirections === "error" && <div>Ошибка получения данных</div>}
           {statusDirections === "success" &&
+            directions !== "Not found" &&
             directions.map((item) => {
               return <DirectionsItem key={item.id} {...item} />;
             })}
