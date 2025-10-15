@@ -19,7 +19,7 @@ export default function BlogItem({
       <div className={style["blog-description"]}>{description}</div>
       <div className={style["blog-bottom"]}>
         <span className={style["blog-date"]}>{date}</span>
-        <div className={style["blog-likes"]}>
+        {/* <div className={style["blog-likes"]}>
           <svg
             width="12"
             height="11"
@@ -33,7 +33,7 @@ export default function BlogItem({
             />
           </svg>
           <span>{likes}</span>
-        </div>
+        </div> */}
       </div>
     </NavLink>
   );
