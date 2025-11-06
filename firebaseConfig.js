@@ -1,11 +1,11 @@
- const firebaseConfig = {
-  apiKey: "AIzaSyDIvQT2oxYjp3wb1Z50XNe2R0BPvlkU_nU",
-  authDomain: "wildvacation-376a3.firebaseapp.com",
-  projectId: "wildvacation-376a3",
-  storageBucket: "wildvacation-376a3.firebasestorage.app",
-  messagingSenderId: "175863826964",
-  appId: "1:175863826964:web:28da006c06612c7a867501",
-  measurementId: "G-WMN1JGKLK4"
+const firebaseConfig = {
+  apiKey: import.meta.env.VITE_API_KEY,
+  authDomain: import.meta.env.VITE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_APP_ID,
+  measurementId: import.meta.env.VITE_MEASUREMENT_ID,
 };
 
 export default firebaseConfig;

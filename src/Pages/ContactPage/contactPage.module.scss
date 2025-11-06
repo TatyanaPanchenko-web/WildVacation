@@ -18,6 +18,9 @@
           padding: 15px 30px;
           border-radius: 6px 6px 0 0;
           transition: all 0.1s ease-in-out;
+          &:hover {
+            cursor: pointer;
+          }
         }
         .activeTab {
           padding: 15px 30px;
