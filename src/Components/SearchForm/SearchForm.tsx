@@ -17,7 +17,7 @@ export default function SearchForm() {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
-  const handleSubmitForm = (e) => {
+  const handleSubmitForm = (e: React.FormEvent<HTMLInputElement>) => {
     e.preventDefault();
     dispatch(
       fetchAddDirections({

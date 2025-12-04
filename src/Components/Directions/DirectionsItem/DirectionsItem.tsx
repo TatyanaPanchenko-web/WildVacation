@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { DirectionsElementType } from "../../../redux/slices/directionsSlice";
+import { DirectionsElementType } from "../../../redux/slices/directions/types";
 import style from "./directionsItem.module.scss";
 
 export default function DirectionsItem({

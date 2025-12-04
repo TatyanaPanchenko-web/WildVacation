@@ -1,5 +1,6 @@
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
+import { useAppDispatch } from "../../redux/store";
 import {
   fetchAddDirections,
   selectDirections,
@@ -15,13 +16,13 @@ export default function ToursPage() {
   const { searchWhere, searchDuration, searchType } =
     useSelector(selectSearchValues);
 
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   useEffect(() => {
     if (!searchWhere && !searchDuration && !searchType) {
       dispatch(fetchAddDirections({}));
     }
-    }, []);
- 
+  }, []);
+
   return (
     <div className={style.tours}>
       <div className={style.container}>
@@ -37,6 +38,7 @@ export default function ToursPage() {
           )}
           {statusDirections === "success" &&
             directions !== "Not found" &&
+            Array.isArray(directions) &&
             directions.map((item) => {
               return <DirectionsItem key={item.title} {...item} />;
             })}

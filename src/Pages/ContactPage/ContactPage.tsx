@@ -1,16 +1,11 @@
 import { useState } from "react";
-// import {
-//   YMaps,
-//   Map,
-//   Placemark,
-//   FullscreenControl,
-// } from "@pbe/react-yandex-maps";
+import MapUI from "../../Components/MapUI/MapUI";
 import arrTabs from "../../data/contacts.json";
 import style from "./contactPage.module.scss";
 
 export default function ContactPage() {
   const [activeTab, setActivetab] = useState(0);
-  const handleClickTab = (index) => {
+  const handleClickTab = (index: number) => {
     setActivetab(index);
   };
 
@@ -47,22 +42,8 @@ export default function ContactPage() {
                 <div key={item.name}>
                   <div className={style["contact-address"]}>{item.address}</div>
                   <div className={style["contact-map"]}>
-                    {/* <YMaps
-                      query={{ apikey: "6be47d0d-890b-4722-96da-3ef0f9271887" }}
-                    >
-                      <Map
-                        defaultState={{
-                          center: item.coordinates,
-                          zoom: 17,
-                        }}
-                      >
-                        <Placemark
-                          geometry={[53.9022, 27.5498]}
-                          properties={{ preset: "islands#redIcon" }}
-                        />
-                        <FullscreenControl />
-                      </Map>
-                    </YMaps> */}
+                    
+                    <MapUI location={item.coordinates} />
                   </div>
                 </div>
               );

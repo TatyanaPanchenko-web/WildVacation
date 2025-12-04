@@ -3,10 +3,17 @@ import { NavLink } from "react-router-dom";
 import logo from "/icons/logo.png";
 import style from "./header.module.scss";
 
-export default function Header({ setOpenModalCall }) {
+type HeaderPropsTypes = {
+  setOpenModalCall: React.Dispatch<React.SetStateAction<boolean>>;
+};
+type CheckActiveType = {
+  isActive: boolean;
+}
+export default function Header({ setOpenModalCall }: HeaderPropsTypes) {
   const [burgerIsOpen, setBurgerIsOpen] = useState(false);
-  const checkActive = ({ isActive }) =>
-    isActive ? style["active-link"] : style["menu-link"];
+  const checkActive = ({ isActive }:CheckActiveType) => {
+    return isActive ? style["active-link"] : style["menu-link"];
+  };
   const handleBurgerOpen = () => {
     if (!burgerIsOpen) {
       setBurgerIsOpen(true);

@@ -22,5 +22,8 @@
     .btn {
       @extend %btn;
     }
+    .error {
+      margin: auto;
+    }
   }
 }

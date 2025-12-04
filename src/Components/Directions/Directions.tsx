@@ -29,14 +29,16 @@ export default function Directions() {
         <div className={style["directions-wrapper"]}>
           {statusDirections === "loading" &&
             [...new Array(3)].map((_, index) => <Skeleton key={index} />)}
-          {statusDirections === "error" && <div>Ошибка получения данных</div>}
-          {statusDirections === "success" &&
-            directions !== "Not found" &&
+          {(statusDirections === "error" || directions === "Not found") && (
+            <div className={style.error}>Ошибка получения данных</div>
+          )}
+          {(statusDirections === "success" || directions !== "Not found") &&
+            typeof directions === "object" &&
             directions.map((item) => {
               return <DirectionsItem key={item.id} {...item} />;
             })}
         </div>
-        {limitDirections < 9 && (
+        {limitDirections < 9 && directions !== "Not found" && (
           <button onClick={() => handleLoadMore()} className={style.btn}>
             Смотреть еще
           </button>

@@ -10,7 +10,8 @@ export const orderSchema = yup.object().shape({
     .number()
     .max(20, "Максимум 20 участников")
     .transform((value) => (Number.isNaN(value) ? null : value))
-    .nullable(),
+    .nullable()
+    .required("Поле обязательно для заполнения"),
   phone: yup
     .string()
     .required("Поле обязательно для заполнения")

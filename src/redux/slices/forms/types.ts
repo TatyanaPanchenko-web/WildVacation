@@ -5,7 +5,7 @@ export interface FormSliceType {
 
 export type FormsOrderElementType = {
   name: string;
-  count: number;
+  count: number ;
   phone: string;
 };
 export type FormsCalllementType = {

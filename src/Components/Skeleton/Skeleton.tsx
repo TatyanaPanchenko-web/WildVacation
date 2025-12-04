@@ -1,6 +1,7 @@
-import ContentLoader from "react-content-loader";
+import ContentLoader, { IContentLoaderProps } from "react-content-loader";
 
-export default function Skeleton(props) {
+interface SkeletonProps extends IContentLoaderProps {}
+export default function Skeleton(props: SkeletonProps) {
   return (
     <ContentLoader
       speed={2}

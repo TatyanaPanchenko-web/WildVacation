@@ -1,5 +1,6 @@
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
+import { useAppDispatch } from "../../redux/store";
 import {
   selectBlogItems,
   fetchAddBlogItems,
@@ -10,7 +11,7 @@ import style from "./blogPages.module.scss";
 
 export default function BlogsPage() {
   const { blogItems, statusBlogItems } = useSelector(selectBlogItems);
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     dispatch(fetchAddBlogItems());
@@ -31,6 +32,7 @@ export default function BlogsPage() {
             <div className={style.error}>Ошибка получения данных</div>
           )}
           {statusBlogItems === "success" &&
+            Array.isArray(blogItems) &&
             blogItems.map((item) => {
               return <BlogItem key={item.title} {...item} />;
             })}

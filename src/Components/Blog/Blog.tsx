@@ -14,8 +14,7 @@ import style from "./blog.module.scss";
 export default function Blog() {
   const { blogItems, limitBlogItems, statusBlogItems } =
     useSelector(selectBlogItems);
-
-  const dispatch = useAppDispatch();
+   const dispatch = useAppDispatch();
 
   useEffect(() => {
     dispatch(fetchAddBlogItems(limitBlogItems));
@@ -31,10 +30,11 @@ export default function Blog() {
         <div className={style["blog-wrapper"]}>
           {statusBlogItems === "loading" &&
             [...new Array(3)].map((_, index) => <Skeleton key={index} />)}
-          {statusBlogItems === "error" && (
+          {(statusBlogItems === "error" || blogItems === "Not found") && (
             <div className={style.error}>Ошибка получения данных</div>
           )}
-          {statusBlogItems === "success" &&
+          {(statusBlogItems === "success" || blogItems !== "Not found") &&
+            typeof blogItems === "object" &&
             blogItems.map((item, index) => {
               if (index % 3 === 0) {
                 return <BlogItemLadge key={item.title} {...item} />;
@@ -43,7 +43,7 @@ export default function Blog() {
               }
             })}
         </div>
-        {limitBlogItems < 6 && (
+        {limitBlogItems < 6 && blogItems !== "Not found" && (
           <button onClick={() => handleLoadMore()} className={style.btn}>
             Смотреть еще
           </button>

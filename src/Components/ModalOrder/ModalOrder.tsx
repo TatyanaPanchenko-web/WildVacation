@@ -69,7 +69,7 @@ export default function ModalOrder({
             <input
               type="number"
               placeholder="Количество участников"
-              {...register("count")}
+              {...register("count", { required: true })}
               aria-invalid={errors.count ? true : false}
             />
             {errors?.count?.message && (

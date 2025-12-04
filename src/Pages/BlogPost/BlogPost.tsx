@@ -20,7 +20,10 @@ export default function BlogPost() {
 
   const { id } = useParams();
 
-  const item = blogItems.find((obj) => obj.id === id);
+  const item = Array.isArray(blogItems)
+    ? blogItems.find((obj) => obj.id === id)
+    : undefined;
+
   if (!item) {
     return;
   }

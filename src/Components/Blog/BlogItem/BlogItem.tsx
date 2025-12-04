@@ -6,7 +6,6 @@ export default function BlogItem({
   id,
   title,
   description,
-  likes,
   date,
   img,
 }: BlogElementType) {

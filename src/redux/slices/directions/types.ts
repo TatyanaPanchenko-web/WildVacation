@@ -1,5 +1,5 @@
 export interface DirectionsSliceType {
-  directions: DirectionsElementType[];
+  directions: DirectionsElementType[] | string;
   limitDirections: number;
   search: Record<string, string>;
   statusDirections: "loading" | "success" | "error";

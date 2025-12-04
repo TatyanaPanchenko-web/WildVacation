@@ -20,7 +20,9 @@ export default function Tour() {
     }
   }, []);
   const { id } = useParams();
-  const item = directions.find((obj) => obj.id == id);
+  const item = Array.isArray(directions)
+    ? directions.find((obj) => obj.id == id)
+    : undefined;
   if (!item) {
     return;
   }

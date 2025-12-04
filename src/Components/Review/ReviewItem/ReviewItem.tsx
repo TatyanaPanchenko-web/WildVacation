@@ -1,6 +1,17 @@
 import style from "./reviewItem.module.scss";
 
-export default function ReviewItem({ img, text, name, position }) {
+type ReviewItemPropsType = {
+  img: string;
+  text: string;
+  name: string;
+  position: string;
+};
+export default function ReviewItem({
+  img,
+  text,
+  name,
+  position,
+}: ReviewItemPropsType) {
   return (
     <div className={`${style["review-wrapper"]} ${style[position]}`}>
       <img src={img} alt="review" />

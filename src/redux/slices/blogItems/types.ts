@@ -1,5 +1,5 @@
 export interface BlogItemsSliceType {
-  blogItems: BlogElementType[];
+  blogItems: BlogElementType[] | string;
   limitBlogItems: number;
   statusBlogItems: "loading" | "success" | "error";
 }
