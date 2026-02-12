@@ -1,10 +1,9 @@
 import { useState, useEffect } from "react";
 import ReviewItem from "./ReviewItem/ReviewItem";
-import arrReviews from "../../data/reviews.json"
+import arrReviews from "../../data/reviews.json";
 import style from "./review.module.scss";
 
 export default function Review() {
- 
   const [currentIndex, setCurrentIndex] = useState(0);
   useEffect(() => {
     let slider = setInterval(() => setCurrentIndex((prev) => prev + 1), 200000);
@@ -38,7 +37,7 @@ export default function Review() {
             return <ReviewItem position={position} key={index} {...item} />;
           })}
 
-          <div
+          <button
             onClick={() => setCurrentIndex((prev) => prev - 1)}
             className={`${style.arrow} ${style["arrow-left"]}`}
           >
@@ -50,9 +49,10 @@ export default function Review() {
             >
               <polygon points="15.293 3.293 6.586 12 15.293 20.707 16.707 19.293 9.414 12 16.707 4.707 15.293 3.293" />
             </svg>
-          </div>
+            <span className={"text-hidden"}>Previous review </span>
+          </button>
 
-          <div
+          <button
             onClick={() => setCurrentIndex((prev) => prev + 1)}
             className={`${style.arrow} ${style["arrow-right"]}`}
           >
@@ -64,7 +64,8 @@ export default function Review() {
             >
               <polygon points="7.293 4.707 14.586 12 7.293 19.293 8.707 20.707 17.414 12 8.707 3.293 7.293 4.707" />
             </svg>
-          </div>
+            <span className={"text-hidden"}>Next review </span>
+          </button>
         </div>
       </div>
     </section>

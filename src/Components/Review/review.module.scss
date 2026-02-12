@@ -19,6 +19,8 @@
         position: absolute;
         fill: $accentColor;
         bottom: 30%;
+        background-color: transparent;
+        border: none;
         cursor: pointer;
         @media (max-width: 1600px) {
           bottom: 80%;

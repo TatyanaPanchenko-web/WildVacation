@@ -21,7 +21,7 @@ export default function ContactPage() {
                 isActive = "activeTab";
               }
               return (
-                <div
+                <button
                   onClick={() => {
                     handleClickTab(index);
                   }}
@@ -31,7 +31,7 @@ export default function ContactPage() {
                   key={item.name}
                 >
                   {item.name}
-                </div>
+                </button>
               );
             })}
           </div>
@@ -42,7 +42,6 @@ export default function ContactPage() {
                 <div key={item.name}>
                   <div className={style["contact-address"]}>{item.address}</div>
                   <div className={style["contact-map"]}>
-                    
                     <MapUI location={item.coordinates} />
                   </div>
                 </div>

@@ -105,6 +105,8 @@ $bgColor: #23282f;
   .close {
     background-image: url("../icons/close.svg");
     background-size: contain;
+    background-color: transparent;
+    border: none;
     width: 24px;
     height: 24px;
     position: absolute;
@@ -144,7 +146,6 @@ $bgColor: #23282f;
     color: $mainColor;
     font-size: 14px;
     font-family: $font;
-    outline: none;
     @include inputWidth(360px);
     @media (max-width: 1024px) {
       width: 100%;

@@ -46,7 +46,9 @@ export default function ModalCall({
   return (
     <div className={`${style.modal} ${openModalCall ? `${style.show}` : ""}`}>
       <form className={style.form} onSubmit={handleSubmit(submit)}>
-        <div onClick={handleCloseIcon} className={style.close}></div>
+        <button onClick={handleCloseIcon} className={style.close}>
+          <span className={"text-hidden"}>Close</span>
+        </button>
         {!submitForm ? (
           <div className={style["form-wrapper"]}>
             <p className={style["form-title"]}>Нужна помощь?</p>
