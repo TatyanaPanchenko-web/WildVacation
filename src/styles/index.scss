@@ -6,6 +6,10 @@
   padding: 0;
   box-sizing: border-box;
 }
+*:focus-visible {
+  outline: 2px solid $accentColor;
+  outline-offset: 3px;
+}
 
 body {
   font-family: $font;

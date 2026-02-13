@@ -42,26 +42,36 @@
       .header-right {
         display: flex;
         align-items: center;
-        .nav {
-          @media (max-width: 1024px) {
-            display: none;
-          }
+        nav {
+          border: 1px solid palegoldenrod;
+          display: none;
         }
+        // .nav a {
+        //   @media (max-width: 1024px) {
+        //     display: none;
+        //   }
+        // }
         .btn {
           @extend %btn;
           @media (max-width: 1024px) {
             visibility: hidden;
+            display: none;
           }
         }
         .burger-wrapper {
           visibility: hidden;
+          display: none;
+          width: 40px;
+          height: 40px;
+          background-color: transparent;
+          border: none;
+          position: absolute;
+          top: 40px;
+          right: 40px;
 
           img {
-            width: 40px;
-            height: 40px;
-            position: absolute;
-            top: 40px;
-            right: 40px;
+            width: 100%;
+            height: 100%;
           }
           .burger-menu {
             position: fixed;
@@ -70,13 +80,19 @@
             top: -100%;
             background-color: $bgColor;
             padding: 100px;
-
-            img {
+            .burger-close {
+              display: none;
               width: 40px;
               height: 40px;
               position: absolute;
               top: 40px;
               right: 40px;
+              background-color: transparent;
+              border: none;
+            }
+            img {
+              width: 100%;
+              height: 100%;
             }
             nav {
               display: flex;
@@ -85,6 +101,7 @@
               a {
                 font-size: 30px;
                 line-height: 2;
+                display: none;
               }
               button {
                 margin-top: 50px;
@@ -98,9 +115,14 @@
             left: 0;
             top: 0;
             bottom: 0;
+
+            a, .burger-close {
+              display: block;
+            }
           }
           @media (max-width: 1024px) {
             visibility: visible;
+            display: block;
           }
         }
       }

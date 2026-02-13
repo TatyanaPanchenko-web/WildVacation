@@ -8,10 +8,10 @@ type HeaderPropsTypes = {
 };
 type CheckActiveType = {
   isActive: boolean;
-}
+};
 export default function Header({ setOpenModalCall }: HeaderPropsTypes) {
   const [burgerIsOpen, setBurgerIsOpen] = useState(false);
-  const checkActive = ({ isActive }:CheckActiveType) => {
+  const checkActive = ({ isActive }: CheckActiveType) => {
     return isActive ? style["active-link"] : style["menu-link"];
   };
   const handleBurgerOpen = () => {
@@ -66,28 +66,29 @@ export default function Header({ setOpenModalCall }: HeaderPropsTypes) {
             >
               Помощь
             </button>
-            <div className={style["burger-wrapper"]}>
+            <button
+              className={style["burger-wrapper"]}
+              onClick={() => handleBurgerOpen()}
+            >
               <img
-                onClick={() => handleBurgerOpen()}
                 className={style["burger-open"]}
                 src="../icons/menu.svg"
                 alt="menu"
               />
-
               <div
-                onClick={() => handleBurgerClose()}
                 className={`${
                   burgerIsOpen
                     ? `${style["burger-menu"]} ${style.isOpen}`
                     : `${style["burger-menu"]}`
                 }`}
               >
-                <img
-                  onClick={() => handleBurgerClose()}
+                <button
                   className={style["burger-close"]}
-                  src="../icons/close.svg"
-                  alt="close"
-                />
+                  onClick={() => handleBurgerClose()}
+                >
+                  <img src="../icons/close.svg" alt="close" />
+                </button>
+
                 <nav>
                   <NavLink to="/about" className={checkActive}>
                     О нас
@@ -109,7 +110,7 @@ export default function Header({ setOpenModalCall }: HeaderPropsTypes) {
                   </button>
                 </nav>
               </div>
-            </div>
+            </button>
           </div>
         </div>
       </div>
