@@ -76,6 +76,7 @@ export default function Header({ setOpenModalCall }: HeaderPropsTypes) {
                 alt="menu"
               />
               <div
+                onClick={() => handleBurgerClose()}
                 className={`${
                   burgerIsOpen
                     ? `${style["burger-menu"]} ${style.isOpen}`

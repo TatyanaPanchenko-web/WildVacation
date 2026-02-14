@@ -42,15 +42,11 @@
       .header-right {
         display: flex;
         align-items: center;
-        nav {
-          border: 1px solid palegoldenrod;
-          display: none;
+        .nav {
+          @media (max-width: 1024px) {
+            display: none;
+          }
         }
-        // .nav a {
-        //   @media (max-width: 1024px) {
-        //     display: none;
-        //   }
-        // }
         .btn {
           @extend %btn;
           @media (max-width: 1024px) {
@@ -116,7 +112,8 @@
             top: 0;
             bottom: 0;
 
-            a, .burger-close {
+            a,
+            .burger-close {
               display: block;
             }
           }
